@@ -1,4 +1,10 @@
 from django.shortcuts import render
+from .models import Sightings
 
 def index(request):
-    return render(request, 'sightings/index.html', {})
+    sighting=Sightings.objects.all()
+    context={
+            'sighting':sighting,
+            }
+    
+    return render(request, 'sightings/index.html', context)

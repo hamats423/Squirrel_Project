@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sighting
+from .models import Sightings
 
-admin.site.register(Sighting)
+admin.site.register(Sightings)
 # Register your models here.

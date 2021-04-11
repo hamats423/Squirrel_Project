@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-class Sightings(models.Model):
+class Sighting(models.Model):
     Latitude=models.FloatField(    
             help_text=('Sighting Latitude: '),
     	    blank=True,

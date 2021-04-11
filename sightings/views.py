@@ -2,9 +2,9 @@ from django.shortcuts import render
 from .models import Sightings
 
 def index(request):
-    sighting=Sightings.objects.all()
+    sightings=Sightings.objects.all()
     context={
-            'sighting':sighting,
+            'sightings':sightings,
             }
     
     return render(request, 'sightings/index.html', context)

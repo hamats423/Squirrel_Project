@@ -1,5 +1,16 @@
+{% extends 'sightings/index.html' %}
 
-
-
-
+	<main role="main">
+		<body>
+			<p>
+				"This is our 'add sightings' test"
+			</p>
+			<div class="container">
+				<form method="POST">
+					{% csrf_token %}
+					<input class="btn btn-primary" type="submit" name = "Submit new sighting!">
+				</form>
+			</div>
+		</body>
+	</main>
 

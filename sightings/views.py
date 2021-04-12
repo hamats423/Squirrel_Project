@@ -23,26 +23,28 @@ def AddSquirrel(request):
              form.save()
              return redirect('/sightings/')   #check later
         
-         else:
-             form = Form()
-             context = {'form':form,}
-             return render(request, 'sightings/add_sightings.html', context) #make html
-
-
-def UpdateSquirrel(request, squirrel_pk):
-    squirrel = Sightings.objects.get(unique_squirrel_id = squirrel_pk)
-    form = SightingsForm(request.POST or None, instance = squirrel)
-    context = {'form':form}
-    
-    if form.is_valid():  #check out if this works
-        squirrels = form.save(commit = False)
-        context = {'form':form}
-        messages.success(request, 'Updated successfully!')
-        return render (request, 'sightings/update_sightings.html', context) 
-
     else:
-        context = {'form':form, 'error':'Update unsuccessful. Try again...'}
-        return render(request, 'sightings/update_sightings.html', context)
+        form = SightingsForm()
+        context = {
+             'form':form,
+             }
+    return render(request, 'sightings/add_sightings.html', context)
+
+
+#def UpdateSquirrel(request, squirrel_pk):
+#    squirrel = Sightings.objects.get(unique_squirrel_id = squirrel_pk)
+#    form = SightingsForm(request.POST or None, instance = squirrel)
+#    context = {'form':form}
+    
+#    if form.is_valid():  #check out if this works
+#        squirrels = form.save(commit = False)
+#        context = {'form':form}
+#        messages.success(request, 'Updated successfully!')
+#        return render(request, 'sightings/update_sightings.html', context) 
+
+#    else:
+#        context = {'form':form, 'error':'Update unsuccessful. Try again...'}
+#        return render(request, 'sightings/update_sightings.html',context)
 
 
 def Stats(request):

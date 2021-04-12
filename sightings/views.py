@@ -5,7 +5,7 @@ from django .http import JsonResponse
 from django import forms
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-from djangp.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 
 def index(request):
@@ -26,7 +26,7 @@ def AddSquirrel(request):
          else:
              form = Form()
              context = {'form':form,}
-             return render(request, 'sightings/add_sigthings.html', context) #make html
+             return render(request, 'sightings/add_sightings.html', context) #make html
 
 
 def UpdateSquirrel(request, squirrel_pk):
@@ -41,7 +41,7 @@ def UpdateSquirrel(request, squirrel_pk):
         return render (request, 'sightings/update_sightings.html', context) 
 
     else:
-        context = {'form':form, 'error':'Update unsuccessful. Try again...')
+        context = {'form':form, 'error':'Update unsuccessful. Try again...'}
         return render(request, 'sightings/update_sightings.html', context)
 
 

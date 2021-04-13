@@ -7,6 +7,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
+from django.db.models import Count 
 
 def index(request):
     sightings=Sightings.objects.all()
@@ -30,21 +31,20 @@ def AddSquirrel(request):
              }
     return render(request, 'sightings/add_sightings.html', context)
 
-
-#def UpdateSquirrel(request, squirrel_pk):
-#    squirrel = Sightings.objects.get(unique_squirrel_id = squirrel_pk)
-#    form = SightingsForm(request.POST or None, instance = squirrel)
-#    context = {'form':form}
+def UpdateSquirrel(request, squirrel_pk):
+    squirrel = Sightings.objects.get(unique_squirrel_id = squirrel_pk)
+    form = SightingsForm(request.POST or None, instance = squirrel)
+    context = {'form':form}
     
-#    if form.is_valid():  #check out if this works
-#        squirrels = form.save(commit = False)
-#        context = {'form':form}
-#        messages.success(request, 'Updated successfully!')
-#        return render(request, 'sightings/update_sightings.html', context) 
+    if form.is_valid():  #check out if this works
+        squirrels = form.save(commit = False)
+        context = {'form':form}
+        messages.success(request, 'Updated successfully!')
+        return render(request, 'sightings/update_sightings.html', context) 
 
-#    else:
-#        context = {'form':form, 'error':'Update unsuccessful. Try again...'}
-#        return render(request, 'sightings/update_sightings.html',context)
+    else:
+        context = {'form':form, 'error':'Update unsuccessful. Try again...'}
+        return render(request, 'sightings/update_sightings.html',context)
 
 
 def Stats(request):

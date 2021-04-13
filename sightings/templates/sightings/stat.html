@@ -1,7 +1,7 @@
+
+
 <!doctype html>
 <html lang="en">
-
-</html>
 
 <head>
   <!-- Bootstrap CSS -->
@@ -10,75 +10,111 @@
 
   <!-- Custom CSS -->
   {% load static %}
-  <link rel="stylesheet" href="{% static 'sightings/carousel.css' %}">
-  <title>Squirrels Tracker</title>
-
+  <link rel="stylesheet"  href="{% static 'sightings/carousel.css' %}">
+  <title>Benjamin and Matt's Tracker </title>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #C1693C;">
-    <a class="navbar-brand" href="#">Squirrels Tracker</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="../">Index </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/map/">Map</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/sightings/">Sightings<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/sightings/add">Add</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/sightings/stats">Statistics</a>
-        </li>
 
-      </ul>
-    </div>
-  </nav>
-
-  <main role="main">
-    <div class="jumbotron">
-      <div class="container">
-        <h3 class="display-3">Squirrels Tracker<img
-            src="https://www.pngkey.com/png/full/60-607273_animals-baby-squirrel-cute-squirrel-squirrels-squirrel-squirrel.png"
-            alt="Squirrels Logo" class="logo" width="160" height="120" /></h3>
-        <p>All the squirrels ID are here. You can click on ID to look into the details and edit the infomation.</p>
-
-        <div id='main-content' class="right-column col-md-12">
-          <ul>
-            {% for squirrel in sightings %}
-            <li style="margin-right:40px; display:inline-block"><a href="{% url 'update' squirrel.UniqueSquirrelID %}">{{ squirrel.UniqueSquirrelID }}</a>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #C1693C;">
+        <a class="navbar-brand" href="#">Benjamin and Matt's Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../">Home </a>
             </li>
-            {% endfor %}
+            <li class="nav-item">
+              <a class="nav-link" href="/map/">Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings/">Sightings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings/add">Add</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/sightings/stats">Stat<span class="sr-only">(current)</span></a>
+            </li>
+
           </ul>
         </div>
-
-
+      </nav>
       
+      <main role="main">
+      
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+          <div class="container">
+            <h1 class="display-3">Squirrels Sighting Statistics<img
+              src="https://www.pngkey.com/png/full/60-607273_animals-baby-squirrel-cute-squirrel-squirrels-squirrel-squirrel.png"
+              alt="Squirrels Logo" class="logo" width="160" height="120" /></h1>
+              
+          
+              By Age:
+              <ul>
+                {% for i in sq_age %}
+                <li>
+                  {{i.sq_age}}:{{i.age_count}}
+                </li>
+                {% endfor %}
+              </ul>
+    
+              <br>
+              By Running:
+              <ul>
+                {% for i in sq_running %}
+                <li>
+                  {{i.sq_running}}:{{i.running_count}}
+                </li>
+                {% endfor %}
+              </ul>
+    
+              <br>
+              By Eating:
+              <ul>
+                {% for i in sq_eating %}
+                <li>
+                  {{i.sq_eating}}:{{i.eating_count}}
+                </li>
+                {% endfor %}
+              </ul>
+    
+            
+              <br>
+              By Primary Fur Color:
+              <ul>
+                {% for i in sq_pfurcolor %}
+                <li>
+                  {{i.sq_pfurcolor}}:{{i.primaryfurcolor_count}}
+                </li>
+                {% endfor %}
+              </ul>
+           
+            <br>
+              By Kuks:
+              <ul>
+                {% for i in sq_kuks %}
+                <li>
+                  {{i.sq_kuks}}:{{i.kuks_count}}
+                </li>
+                {% endfor %}
+              </ul>
+            
+    
+            </div>
+          </div>
+
+
+          </div>
         </div>
-        <br>
-        <br>
-        <p><a class="btn btn-primary btn-sm" href="/sightings/add" role="button">Add a New Sighting&raquo;</a></p>
+      
+          
 
-      </div>
-    </div>
-
-    <div class='row'>
-      <div class='header col-md-12' role="banner">
-  </main>
-  <footer class="container">
-  
-   
-  </footer>
-</body>
+  </body>
 
 </html>

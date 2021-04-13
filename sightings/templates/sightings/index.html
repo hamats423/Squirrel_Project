@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Adopt A Pet{% block title %}{% endblock %}</title>
+    <title>SQUIRREL TRACKER{% block title %}{% endblock %}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -73,12 +73,31 @@
       {% endblock %}
     </main>
 
+          <ul>
+            {% for squirrel in sightings %}
+            <li style="margin-right:40px; display:inline-block"><a href="{% url 'update' squirrel.UniqueSquirrelID %}">{{ squirrel.UniqueSquirrelID }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
     <footer class="text-muted">
       <div class="container">
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
-        <p>&copy; 2020 Adopt A Pet, Inc.</p>
+        <p>&copy; 2021 B&M's Inc.</p>
       </div>
     </footer>
 

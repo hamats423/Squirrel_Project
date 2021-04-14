@@ -31,8 +31,8 @@ def AddSquirrel(request):
              }
     return render(request, 'sightings/add_sightings.html', context)
 
-def UpdateSquirrel(request, squirrel_pk):
-    squirrel = Sightings.objects.get(UniqueSquirrelID  = squirrel_pk)
+def UpdateSquirrel(request, unique_id):
+    squirrel = Sightings.objects.get(UniqueSquirrelID=unique_id)
     form = SightingsForm(request.POST or None, instance = squirrel)
     context = {'form':form}
     
@@ -48,10 +48,10 @@ def UpdateSquirrel(request, squirrel_pk):
 
 
 def Stats(request):
-    sq__age = Sightings.objects.values('Age').order_by('Age').annotate(age_count=Count('Age'))
+    sq_age = Sightings.objects.values('Age').order_by('Age').annotate(age_count=Count('Age'))
     sq_running = Sightings.objects.values('Running').order_by('Running').annotate(running_count=Count('Running'))
     sq_eating = Sightings.objects.values('Eating').order_by('Eating').annotate(eating_count=Count('Eating'))
-    sq_pfurcolor = Sightings.objects.values('PrimaryFurColor').order_by('PrimaryFurColor').annotate(primaryfurcolor_count=Count('PrimaryFurColor'))
+    sq_pfurcolor = Sightings.objects.values('Primary_Fur_Color').order_by('Primary_Fur_Color').annotate(primaryfurcolor_count=Count('Primary_Fur_Color'))
     sq_kuks = Sightings.objects.values('Kuks').order_by('Kuks').annotate(kuks_count=Count('Kuks'))
 
     context = {
@@ -61,7 +61,7 @@ def Stats(request):
             'sq_pfurcolor':sq_pfurcolor,
             'sq_kuks':sq_kuks,
             }
-    return render(request, 'sightings/stats.html', context)
+    return render(request, 'sightings/stat.html', context)
 
     
 

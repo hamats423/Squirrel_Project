@@ -1,16 +1,6 @@
 {% extends 'sightings/index.html' %}
 {% block main %}
-		<p>
-		"This is our 'add sightings' test"
-		</p>
-		<div class="container">
-			<form method="POST">
-				{% csrf_token %}
-				<input class="btn btn-primary" type="submit" name = "Submit new sighting!">
-			</form>
-		</div>
 
-<div>
 <div><img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
 <h2>New Squirrel Sighting</h2>
 <p>Amazing! You saw a brand new, untracked squirrel. If you don't mind, we would sincerely appreciate you taking the time to provide some data about the novel rodent. :)</p>
@@ -126,6 +116,15 @@
 <option>True</option>
 <option>False</option>
 </select></div>
+
+<div class="container">
+	<form method="POST">
+		{% csrf_token %}
+		<input class="btn btn-primary" type="submit" name = "Submit new sighting!">
+        </form>
+</div>
+
+<div>
 <footer>
 <p>&copy; 2021 Handsome Inc.</p>
 <ul>

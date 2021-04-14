@@ -37,13 +37,14 @@ def UpdateSquirrel(request, unique_id):
     context = {'form':form}
     
     if form.is_valid():  #check out if this works
-        squirrels = form.save(commit = False)
+        squirrel  = form.save(commit = False)
+        squirrel.save()
         context = {'form':form}
-        messages.success(request, 'Updated successfully!')
+        messages.success(request, 'Updated successfully! You deserve a nut!')
         return render(request, 'sightings/update_sightings.html', context) 
 
     else:
-        context = {'form':form, 'error':'Update unsuccessful. Try again...'}
+        context = {'form':form, 'error':'Update unsuccessful. Try again...That went nuts...'}
         return render(request, 'sightings/update_sightings.html',context)
 
 

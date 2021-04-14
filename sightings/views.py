@@ -45,6 +45,7 @@ def UpdateSquirrel(request, unique_id):
 
     else:
         context = {'form':form, 'error':'Update unsuccessful. Try again...That went nuts...'}
+        messages.error(request, 'Update unsuccessful. Try again...That went nuts...')
         return render(request, 'sightings/update_sightings.html',context)
 
 

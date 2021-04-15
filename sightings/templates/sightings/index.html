@@ -81,6 +81,12 @@
             {% for squirrel in sightings %}
             <li style="margin-right:40px; display:inline-block"><a href="{% url 'update' squirrel.UniqueSquirrelID %}">{{ squirrel.UniqueSquirrelID }}</a>
             </li>
+           
+
+ <li style="margin-right:40px; display:inline-block"><a href="{% url 'update' squirrel.Date
+%}">{{ squirrel.Date}}</a>
+            </li>
+
             {% endfor %}
           </ul>
         </div>

@@ -58,9 +58,19 @@
               By Age:
               <ul>
                 {% for i in sq_age %}
-                <li>
-                  {{i.sq_age}}:{{i.age_count}}
+		{% if i.Age == "?" %}
+		<li>
+		  Unknown:{{i.age_count}}
+		</li>
+		{% elif i.Age == "" %}
+		<li>
+		  No response:{{i.age_count}}
+		</li>
+		{% else %}
+		<li>
+                  {{i.Age}}:{{i.age_count}}
                 </li>
+		{% endif %}
                 {% endfor %}
               </ul>
     
@@ -69,7 +79,7 @@
               <ul>
                 {% for i in sq_running %}
                 <li>
-                  {{i.sq_running}}:{{i.running_count}}
+                  {{i.Running}}:{{i.running_count}}
                 </li>
                 {% endfor %}
               </ul>
@@ -79,7 +89,7 @@
               <ul>
                 {% for i in sq_eating %}
                 <li>
-                  {{i.sq_eating}}:{{i.eating_count}}
+                  {{i.Eating}}:{{i.eating_count}}
                 </li>
                 {% endfor %}
               </ul>
@@ -89,9 +99,15 @@
               By Primary Fur Color:
               <ul>
                 {% for i in sq_pfurcolor %}
-                <li>
-                  {{i.sq_pfurcolor}}:{{i.primaryfurcolor_count}}
+		{% if i.Primary_Fur_Color == "" %}
+		<li>
+		  No response: {{i.primaryfurcolor_count}}
+		</li>
+		{% else %}
+		<li>
+                  {{i.Primary_Fur_Color}}:{{i.primaryfurcolor_count}}
                 </li>
+		{% endif %}
                 {% endfor %}
               </ul>
            
@@ -100,7 +116,7 @@
               <ul>
                 {% for i in sq_kuks %}
                 <li>
-                  {{i.sq_kuks}}:{{i.kuks_count}}
+                  {{i.Kuks}}:{{i.kuks_count}}
                 </li>
                 {% endfor %}
               </ul>

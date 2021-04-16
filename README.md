@@ -10,7 +10,7 @@ Project Group 38, Section 1
 Benjamin Byeon and Matthew Hamati
 
 # UNIs
-bb3037 mnh2128
+[bb3037, mnh2128]
 
 # Link to the Server
 In order to run this interface it's imperative to follow the steps below:

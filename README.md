@@ -26,9 +26,13 @@ sudo /home/USERNAME/DIRECTORY/env/bin/python manage.py runserver 0.0.0.0:80
 
 # Different views
 To access the list of all squirrels: sightings/
+
 To access a map of squirrel sightings: map/
+
 To access some stats about the sightings: sightings/stats/
+
 To view/update information about a specific squirrel: sightings/<unique-squirrel-id>
+
 To add data for a new sightings: sightings/add/
 
 Note: All sites have a drop down menu at the top to help navigate between pages!

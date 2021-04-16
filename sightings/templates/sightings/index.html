@@ -50,6 +50,7 @@
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Contact</h4>
               <ul class="list-unstyled">
+		<li><a href="{% url 'index' %}" class="text-white">Home</a></li>
 		<li><a href="{% url 'add' %}" class="text-white">Add a sighting</a></li>
 		<li><a href="{% url 'stat' %}" class="text-white">Click for interesting statistics!</a></li>
 		<li><a href="{% url 'map' %}" class="text-white">Check out the map!</a></li>
@@ -79,14 +80,8 @@
 
           <ul>
             {% for squirrel in sightings %}
-            <li style="margin-right:40px; display:inline-block"><a href="{% url 'update' squirrel.UniqueSquirrelID %}">{{ squirrel.UniqueSquirrelID }}</a>
+	    <li style="margin-right:40px; display:inline-block"><a href="{% url 'update' squirrel.UniqueSquirrelID %}">{{ squirrel.UniqueSquirrelID }} : {{squirrel.Date}}</a>
             </li>
-           
-
- <li style="margin-right:40px; display:inline-block"><a href="{% url 'update' squirrel.Date
-%}">{{ squirrel.Date}}</a>
-            </li>
-
             {% endfor %}
           </ul>
         </div>

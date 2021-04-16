@@ -1,49 +1,10 @@
-
+{% extends 'sightings/index.html' %}
 
 <!doctype html>
 <html lang="en">
 
-<head>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% block main %}
 
-  <!-- Custom CSS -->
-  {% load static %}
-  <link rel="stylesheet"  href="{% static 'sightings/carousel.css' %}">
-  <title>Benjamin and Matt's Tracker </title>
-</head>
-
-<body>
-
-
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: darkblue">
-        <a class="navbar-brand" href="#">Benjamin and Matt's Tracker</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-		<a class="nav-link" href="{% url 'index' %}">Home </a>
-            </li>
-            <li class="nav-item">
-             	<a class="nav-link" href="/map/">Map</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/sightings/">Sightings</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/sightings/add">Add</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/sightings/stats">Stat<span class="sr-only">(current)</span></a>
-            </li>
-
-          </ul>
-        </div>
-      </nav>
       
       <main role="main">
       
@@ -128,9 +89,4 @@
 
           </div>
         </div>
-      
-          
-
-  </body>
-
-</html>
+{% endblock %}
